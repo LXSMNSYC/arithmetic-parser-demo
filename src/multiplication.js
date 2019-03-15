@@ -31,10 +31,26 @@ import {
 import { Exponentiation } from './dependency';
 
 
+/**
+ * @ignore
+ */
 const Mul = new CharSet('*');
+/**
+ * @ignore
+ */
 const Div = new CharSet('/');
-
+/**
+ * @desc
+ * Multiplication Parser
+ */
 export default class Multiplication extends Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     // eslint-disable-next-line class-methods-use-this
