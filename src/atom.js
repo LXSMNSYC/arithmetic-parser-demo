@@ -32,10 +32,27 @@ import Value from './value';
 import { Addition } from './dependency';
 
 
+/**
+ * @ignore
+ */
 const OPEN = new CharSet('(');
+/**
+ * @ignore
+ */
 const CLOSE = new CharSet(')');
 
+/**
+ * @desc
+ * Represents a single term (value) or an expression enclosed in a parentheses
+ */
 export default class Atom extends Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof Feed) {
