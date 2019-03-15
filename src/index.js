@@ -30,7 +30,18 @@
 import { Matcher } from 'parexgram-js';
 import { Addition } from './dependency';
 
+/**
+ * @desc
+ * Arithmetic Parser
+ */
 export default class ArithmeticParser extends Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     return new Addition().parse(feed);
