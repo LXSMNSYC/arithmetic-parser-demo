@@ -30,9 +30,23 @@ import {
 } from 'parexgram-js';
 import { Negation } from './dependency';
 
+/**
+ * @ignore
+ */
 const Pow = new CharSet('^');
 
+/**
+ * @desc
+ * Exponentiation Parser
+ */
 export default class Exponentiation extends Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     // eslint-disable-next-line class-methods-use-this
