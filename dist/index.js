@@ -128,7 +128,7 @@ var ArithmeticParser = (function (parexgramJs) {
     // eslint-disable-next-line class-methods-use-this
     parse(feed) {
       if (feed instanceof parexgramJs.Feed) {
-        return new parexgramJs.Alternation([
+        const r = new parexgramJs.Alternation([
           new Value(),
           new parexgramJs.Sequence([
             OPEN,
@@ -136,6 +136,11 @@ var ArithmeticParser = (function (parexgramJs) {
             CLOSE,
           ]),
         ]).parse(feed);
+
+        if (r instanceof Array) {
+          return r[1];
+        }
+        return r;
       }
       return undefined;
     }
