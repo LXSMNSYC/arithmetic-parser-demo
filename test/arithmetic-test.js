@@ -86,4 +86,10 @@ describe('ArithmeticParser', () => {
     const y = rand();
     assert(parser.parse(new Feed(`-${x}^${y}`)) === (-x) ** y);
   });
+  it('should evaluate first the parentheses expression', () => {
+    const x = rand();
+    const y = rand();
+    const z = rand();
+    assert(parser.parse(new Feed(`(${x}+${y})*${z}`)) === (x + y) * z);
+  });
 });
