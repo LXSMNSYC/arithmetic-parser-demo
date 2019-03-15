@@ -59,6 +59,6 @@
     "terser": "^3.17.0"
   },
   "dependencies": {
-    "parexgram-js": "^0.1.1"
+    "parexgram-js": "^0.1.3"
   }
 }
