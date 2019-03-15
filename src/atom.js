@@ -56,7 +56,7 @@ export default class Atom extends Matcher {
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof Feed) {
-      return new Alternation([
+      const r = new Alternation([
         new Value(),
         new Sequence([
           OPEN,
@@ -64,6 +64,11 @@ export default class Atom extends Matcher {
           CLOSE,
         ]),
       ]).parse(feed);
+
+      if (r instanceof Array) {
+        return r[1];
+      }
+      return r;
     }
     return undefined;
   }
