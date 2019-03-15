@@ -9,6 +9,9 @@ Arithmetic Parser Demo using parexgram.js
 
 [![codecov](https://codecov.io/gh/LXSMNSYC/arithmetic-parser-demo/branch/master/graph/badge.svg)](https://codecov.io/gh/LXSMNSYC/arithmetic-parser-demo)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/LXSMNSYC/arithmetic-parser-demo/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LXSMNSYC/arithmetic-parser-demo?targetFile=package.json)
+[![dependencies Status](https://david-dm.org/lxsmnsyc/arithmetic-parser-demo/status.svg)](https://david-dm.org/lxsmnsyc/arithmetic-parser-demo)
+[![devDependencies Status](https://david-dm.org/lxsmnsyc/arithmetic-parser-demo/dev-status.svg)](https://david-dm.org/lxsmnsyc/arithmetic-parser-demo?type=dev)
 
 ## Grammar
 
