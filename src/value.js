@@ -29,18 +29,37 @@ import {
   Matcher, Feed, Range, Sequence, Quantifier, CharSet,
 } from 'parexgram-js';
 
+/**
+ * @ignore
+ */
 const Decimal = new CharSet('.');
 
+/**
+ * @ignore
+ */
 const Number = new Range('0', '9');
 
+/**
+ * @ignore
+ */
 const Digit = new Sequence([
   Number,
   new Quantifier(Decimal, 0, 1),
   new Quantifier(Number, 0),
 ]);
 
-
+/**
+ * @desc
+ * Numeric value parser ([0-9]*\.[0-9]*)
+ */
 export default class Value extends Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof Feed) {
