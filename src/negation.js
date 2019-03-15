@@ -31,9 +31,22 @@ import {
 import { Atom } from './dependency';
 
 
+/**
+ * @ignore
+ */
 const Neg = new CharSet('-');
-
+/**
+ * @desc
+ * Negation Parser
+ */
 export default class Negation extends Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof Feed) {
