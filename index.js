@@ -30,18 +30,37 @@ var parexgramJs = require('parexgram-js');
  * @copyright Alexis Munsayac 2019
  */
 
+/**
+ * @ignore
+ */
 const Decimal = new parexgramJs.CharSet('.');
 
+/**
+ * @ignore
+ */
 const Number = new parexgramJs.Range('0', '9');
 
+/**
+ * @ignore
+ */
 const Digit = new parexgramJs.Sequence([
   Number,
   new parexgramJs.Quantifier(Decimal, 0, 1),
   new parexgramJs.Quantifier(Number, 0),
 ]);
 
-
+/**
+ * @desc
+ * Numeric value parser ([0-9]*\.[0-9]*)
+ */
 class Value extends parexgramJs.Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof parexgramJs.Feed) {
@@ -86,10 +105,27 @@ class Value extends parexgramJs.Matcher {
  */
 
 
+/**
+ * @ignore
+ */
 const OPEN = new parexgramJs.CharSet('(');
+/**
+ * @ignore
+ */
 const CLOSE = new parexgramJs.CharSet(')');
 
+/**
+ * @desc
+ * Represents a single term (value) or an expression enclosed in a parentheses
+ */
 class Atom extends parexgramJs.Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof parexgramJs.Feed) {
@@ -135,9 +171,22 @@ class Atom extends parexgramJs.Matcher {
  */
 
 
+/**
+ * @ignore
+ */
 const Neg = new parexgramJs.CharSet('-');
-
+/**
+ * @desc
+ * Negation Parser
+ */
 class Negation extends parexgramJs.Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof parexgramJs.Feed) {
@@ -183,9 +232,23 @@ class Negation extends parexgramJs.Matcher {
  * @copyright Alexis Munsayac 2019
  */
 
+/**
+ * @ignore
+ */
 const Pow = new parexgramJs.CharSet('^');
 
+/**
+ * @desc
+ * Exponentiation Parser
+ */
 class Exponentiation extends parexgramJs.Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     // eslint-disable-next-line class-methods-use-this
@@ -241,10 +304,26 @@ class Exponentiation extends parexgramJs.Matcher {
  */
 
 
+/**
+ * @ignore
+ */
 const Mul = new parexgramJs.CharSet('*');
+/**
+ * @ignore
+ */
 const Div = new parexgramJs.CharSet('/');
-
+/**
+ * @desc
+ * Multiplication Parser
+ */
 class Multiplication extends parexgramJs.Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     // eslint-disable-next-line class-methods-use-this
@@ -304,10 +383,27 @@ class Multiplication extends parexgramJs.Matcher {
  * @copyright Alexis Munsayac 2019
  */
 
+/**
+ * @ignore
+ */
 const Add = new parexgramJs.CharSet('+');
+/**
+ * @ignore
+ */
 const Sub = new parexgramJs.CharSet('-');
 
+/**
+ * @desc
+ * Addition Parser (right-to-left)
+ */
 class Addition extends parexgramJs.Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     // eslint-disable-next-line class-methods-use-this
@@ -366,7 +462,18 @@ class Addition extends parexgramJs.Matcher {
  * @copyright Alexis Munsayac 2019
  */
 
+/**
+ * @desc
+ * Arithmetic Parser
+ */
 class ArithmeticParser extends parexgramJs.Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     return new Addition().parse(feed);
