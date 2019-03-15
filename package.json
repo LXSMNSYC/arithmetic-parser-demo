@@ -1,6 +1,6 @@
 {
   "name": "arithmetic-parser-demo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Arithmetic Parser Demo using parexgram.js",
   "main": "index.js",
   "scripts": {
