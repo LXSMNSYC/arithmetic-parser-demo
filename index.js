@@ -129,7 +129,7 @@ class Atom extends parexgramJs.Matcher {
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     if (feed instanceof parexgramJs.Feed) {
-      return new parexgramJs.Alternation([
+      const r = new parexgramJs.Alternation([
         new Value(),
         new parexgramJs.Sequence([
           OPEN,
@@ -137,6 +137,11 @@ class Atom extends parexgramJs.Matcher {
           CLOSE,
         ]),
       ]).parse(feed);
+
+      if (r instanceof Array) {
+        return r[1];
+      }
+      return r;
     }
     return undefined;
   }
