@@ -31,10 +31,27 @@ import {
 
 import { Multiplication } from './dependency';
 
+/**
+ * @ignore
+ */
 const Add = new CharSet('+');
+/**
+ * @ignore
+ */
 const Sub = new CharSet('-');
 
+/**
+ * @desc
+ * Addition Parser (right-to-left)
+ */
 export default class Addition extends Matcher {
+  /**
+   * @desc
+   * Given a feed, attempt to match and consume
+   * the prefix of a feed.
+   * @param {Feed} feed
+   * @returns {Number|undefined}
+   */
   // eslint-disable-next-line class-methods-use-this
   parse(feed) {
     // eslint-disable-next-line class-methods-use-this
