@@ -47,6 +47,12 @@ value
   ;
 ```
 
+## Install
+
+```bash
+npm i arithmetic-parser-demo
+```
+
 ## Build
 
 ```bash
